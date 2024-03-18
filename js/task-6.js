@@ -1,11 +1,13 @@
+/* jshint esversion: 6 */
+
 const controls = document.getElementById('controls');
 const input = controls.querySelector('input');
-const createButton = controls.querySelector('button[data-action="create"]');
-const destroyButton = controls.querySelector('button[data-action="destroy"]');
+const createBtn = document.querySelector('[data-create]');
+const destroyBtn = document.querySelector('[data-destroy]');
 const boxesContainer = document.getElementById('boxes');
 
-createButton.addEventListener('click', createBoxes);
-destroyButton.addEventListener('click', destroyBoxes);
+createBtn.addEventListener('click', createBoxes);
+destroyBtn.addEventListener('click', destroyBoxes);
 
 function createBoxes() {
   const amount = Number(input.value);

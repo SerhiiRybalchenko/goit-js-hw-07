@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -29,16 +30,11 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
+const galleryItemsHtml = images
+.map(img => {
+  return `<li><img src="${img.url}" alt="${img.alt}"></li>`;
+})
+.join('');
 
-images.forEach(img => {
-  const listItem = document.createElement('li');
-  const imagesEL = document.createElement('img');
+gallery.insertAdjacentHTML('beforeend', galleryItemsHtml);
 
-  imagesEL.src = img.url;
-  imagesEL.alt = img.alt;
-
-  listItem.appendChild(imagesEL);
-  gallery.appendChild(listItem);
-});
-
-console.log(gallery);
